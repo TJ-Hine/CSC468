@@ -1,0 +1,14 @@
+# Use the official MySQL Server image as the base image
+FROM mysql/mysql-server:latest
+
+# Set the environment variable to specify the database name
+ENV MYSQL_DATABASE csc468
+
+# Copy the CSV file containing the data for the 'cattle' table into the container
+COPY cattle.csv /docker-entrypoint-initdb.d/
+
+# Use a custom SQL script to create the 'cattle' table and import the data from the CSV file
+COPY init-db.sql /docker-entrypoint-initdb.d/
+
+# Set the root password (replace 'your_password' with your desired password)
+ENV MYSQL_ROOT_PASSWORD your_password
