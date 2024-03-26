@@ -11,4 +11,4 @@ COPY cattle.csv /docker-entrypoint-initdb.d/
 COPY init-db.sql /docker-entrypoint-initdb.d/
 
 # Set the root password (replace 'your_password' with your desired password)
-ENV MYSQL_ROOT_PASSWORD your_password
+ENV MYSQL_ROOT_PASSWORD 1234
