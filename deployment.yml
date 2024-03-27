@@ -6,14 +6,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sql-serv
+      app: sql-serv-deployment
   template:
     metadata:
       labels:
-        app: sql-serv
+        app: sql-serv-deployment
     spec:
       containers:
       - name: sql-serv
-        image: <your_dockerhub_username>/sql-serv:latest
+        image: th1008509/sql-serv-deployment:latest
         ports:
         - containerPort: 3303
+        imagePullSecrets:
+        - name: my-docker-credentials
